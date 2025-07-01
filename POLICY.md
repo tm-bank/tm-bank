@@ -1,5 +1,5 @@
 # Privacy Policy
-**Effective date: [27th June 2025]**
+**Effective date: [June 27th 2025]**
 
 The TM-BANK app collects the following data:
 - **Discord Username** and **User ID** – to identify users and link contributions
