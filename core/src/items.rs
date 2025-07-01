@@ -7,5 +7,5 @@ pub struct Item {
     pub author: UserId,
     pub tags: Vec<Tags>,
     pub image_urls: Vec<String>,
-    pub item_exchange_id: ItemExchangeId,
+    pub item_exchange_id: ItemExchangeId, 
 }
