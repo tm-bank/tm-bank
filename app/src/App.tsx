@@ -1,3 +1,5 @@
+import { AppSidebar } from "./components/sidebar/app-sidebar";
+import { SidebarInset } from "./components/ui/sidebar";
 import { Layout } from "./Layout";
 import "./styles/App.css";
 
@@ -5,6 +7,8 @@ import "./styles/App.css";
   return (
     <Layout>
       <div className="App">
+        <AppSidebar />
+        <SidebarInset></SidebarInset>
       </div>
     </Layout>
   );
