@@ -1,4 +1,4 @@
-use crate::{items::Item, votes::Vote};
+use crate::{items::Item, moderation::Report, votes::Vote};
 
 pub enum AuthenticationStatus {
     Guest,
@@ -18,5 +18,6 @@ pub struct UserData {
     pub avatar_url: String,
     pub items: Vec<Item>,
     pub role: UserRole,
-    pub votes: Vec<Vote>
+    pub votes: Vec<Vote>,
+    pub reports: Vec<Report>
 }

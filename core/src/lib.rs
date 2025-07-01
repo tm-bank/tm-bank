@@ -3,3 +3,4 @@ pub mod items;
 pub mod tags;
 pub mod maps;
 pub mod votes;
+pub mod moderation;
