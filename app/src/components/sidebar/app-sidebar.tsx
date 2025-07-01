@@ -1,10 +1,14 @@
-import { Sidebar, SidebarContent, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarRail } from "../ui/sidebar";
+import { Sidebar, SidebarContent, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarRail, useSidebar } from "../ui/sidebar";
 import { TMBank } from "../tm-bank";
-import { Home } from "lucide-react";
+import { Compass, Home } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import { Separator } from "../ui/separator";
 
 export function AppSidebar() {
-    let location = useLocation();
+    const location = useLocation();
+    const sidebar = useSidebar();
+
+
 
     return (
         <Sidebar collapsible="icon" className="border-r-0">
@@ -15,17 +19,21 @@ export function AppSidebar() {
                     </div>
                 </SidebarMenu>
             </SidebarHeader>
-            <SidebarContent className="p-2">
-                <SidebarMenu>
-                    <SidebarMenuItem>
-                        <SidebarMenuButton asChild isActive={location.pathname === "/"}>
-                            <Link to={"/"}>
-                                <Home />
-                                <span>Home</span>
-                            </Link>
-                        </SidebarMenuButton>
-                    </SidebarMenuItem>
-                </SidebarMenu>
+            <Separator orientation="horizontal" />
+            <SidebarContent className="p-2 flex flex-col gap-2">
+                <SidebarMenuButton asChild isActive={location.pathname === "/"}>
+                    <Link to={"/"}>
+                        <Home />
+                        <span>Home</span>
+                    </Link>
+                </SidebarMenuButton>
+
+                <SidebarMenuButton asChild isActive={location.pathname === "/discover"}>
+                    <Link to={"/discover"}>
+                        <Compass />
+                        <span>Discover</span>
+                    </Link>
+                </SidebarMenuButton>
             </SidebarContent>
             <SidebarRail />
         </Sidebar>

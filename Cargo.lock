@@ -3881,7 +3881,12 @@ dependencies = [
  "tauri",
  "tauri-build",
  "tauri-plugin-opener",
+ "tmbank_core",
 ]
+
+[[package]]
+name = "tmbank_core"
+version = "0.1.0"
 
 [[package]]
 name = "tokio"
