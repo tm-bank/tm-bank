@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="app/public/tmbank.svg" width=200 /> 
+    <img src="app/public/tmbankrounded.png" width=200 /> 
     <h1>TM Bank</h1>
     <b>Find inspiration for your next big map.</b>
 </div>
