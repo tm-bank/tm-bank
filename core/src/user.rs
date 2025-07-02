@@ -1,10 +1,14 @@
+use serde::Serialize;
+
 use crate::{items::Item, moderation::Report, votes::Vote};
 
+#[derive(Serialize)]
 pub enum AuthenticationStatus {
     Guest,
     User,
 }
 
+#[derive(Clone, Serialize)]
 pub enum UserRole {
     Member,
     Admin,
@@ -12,6 +16,7 @@ pub enum UserRole {
 
 pub type UserId = u64;
 
+#[derive(Clone, Serialize)]
 pub struct UserData {
     pub id: UserId,
     pub display_name: String,

@@ -3,4 +3,4 @@ members = ["app/src-tauri", "core"]
 resolver = "3"
 
 [workspace.dependencies]
-tmbank_core = { path = "core"}
+tm_bank_core = { path = "core"}

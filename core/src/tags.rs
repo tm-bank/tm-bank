@@ -1,3 +1,6 @@
+use serde::Serialize;
+
+#[derive(Clone, Serialize)]
 pub enum ColorTags {
     RED,
     ORANGE,
@@ -37,6 +40,7 @@ impl ToString for ColorTags {
     }
 }
 
+#[derive(Clone, Serialize)]
 pub enum StyleTags {
     TECH,
     WOOD,
@@ -65,6 +69,7 @@ impl ToString for StyleTags {
     }
 }
 
+#[derive(Clone, Serialize)]
 pub enum ThemeTags {
     DARK,
     TERRAIN,
@@ -113,6 +118,7 @@ impl ToString for ThemeTags {
     }
 }
 
+#[derive(Clone, Serialize)]
 pub enum SpecialThemeTags {
     SPACE,
     PIRATES,
@@ -142,6 +148,7 @@ impl ToString for SpecialThemeTags {
 }
 
 ///TODO: Add more block tags
+#[derive(Clone, Serialize)]
 pub enum BlockTags {
     PLATFORM,
     CANOPY,
@@ -160,6 +167,7 @@ impl ToString for BlockTags {
     }
 }
 
+#[derive(Clone, Serialize)]
 pub enum BaseTags {
     VOID,
     NOSTADIUM,
@@ -180,6 +188,7 @@ impl ToString for BaseTags {
     }
 }
 
+#[derive(Clone, Serialize)]
 pub enum Tags {
     Color(ColorTags),
     Style(StyleTags),

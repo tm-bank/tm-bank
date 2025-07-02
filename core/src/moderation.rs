@@ -1,6 +1,7 @@
-use std::time::Instant;
+use serde::Serialize;
 
+#[derive(Clone, Serialize)]
 pub struct Report {
     pub id: u64,
-    pub created_at: Instant,
 }
+

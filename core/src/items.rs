@@ -1,7 +1,10 @@
+use serde::Serialize;
+
 use crate::{tags::Tags, user::UserId};
 
 pub type ItemExchangeId = u64;
 
+#[derive(Clone, Serialize)]
 pub struct Item {
     pub name: String,
     pub author: UserId,
