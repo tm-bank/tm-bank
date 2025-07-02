@@ -1,4 +1,4 @@
-use crate::{items::Item, tags::Tags, user::UserId};
+use crate::types::{items::Item, tags::Tags, user::UserId};
 
 pub type ManiaExchangeId = u64;
 pub struct Map {

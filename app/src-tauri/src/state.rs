@@ -1,13 +1,10 @@
 use serde::Serialize;
-use tm_bank_core::user::{AuthenticationStatus, UserData};
-
-use crate::auth::OAuthState;
+use tm_bank_core::types::user::{AuthenticationStatus, UserData};
 
 #[derive(Serialize)]
 pub struct Authentication {
     pub status: AuthenticationStatus,
     pub user: Option<UserData>,
-    pub auth: OAuthState,
 }
 
 impl Default for Authentication {
@@ -15,7 +12,6 @@ impl Default for Authentication {
         Self {
             status: AuthenticationStatus::Guest,
             user: None,
-            auth: OAuthState { access_token: None }
         }
     }
 }

@@ -3,7 +3,6 @@ use tauri::{async_runtime::Mutex, Manager};
 mod auth;
 mod state;
 
-use auth::{get_user_info, start_discord_oauth};
 use state::AppState;
 #[cfg(desktop)]
 use tauri_plugin_deep_link::DeepLinkExt;
@@ -13,10 +12,7 @@ pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_deep_link::init())
         .plugin(tauri_plugin_opener::init())
-        .invoke_handler(tauri::generate_handler![
-            start_discord_oauth,
-            get_user_info
-        ])
+        .invoke_handler(tauri::generate_handler![])
         .setup(|app| {
             app.manage(Mutex::new(AppState::default()));
 
@@ -35,4 +31,3 @@ pub fn run() {
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
-

@@ -1,6 +1,6 @@
 use serde::Serialize;
 
-use crate::{items::Item, moderation::Report, votes::Vote};
+use crate::types::{items::Item, moderation::Report, votes::Vote};
 
 #[derive(Serialize)]
 pub enum AuthenticationStatus {
