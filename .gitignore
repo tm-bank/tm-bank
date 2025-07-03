@@ -34,3 +34,4 @@ app/node_modules
 
 # Env files
 /server/.env
+/server/data/
