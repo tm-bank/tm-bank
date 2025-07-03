@@ -4,11 +4,14 @@ import Express from "express";
 import { emit } from "./emit.js";
 import crypto from "crypto";
 import { db } from "./db.js";
+import { ipFilterMiddleware } from "express-ip-filter-middleware";
+import { makeDenylistMiddleware } from "./denylist.js";
 
 config()
 
 const PORT = process.env.PORT;
 const WEBHOOK_URL = process.env.WEBHOOK_URL;
+const DENYLIST = process.env.DENYLIST;
 
 if (!PORT) {
     cli.logError("PORT must be specified in .env");
@@ -20,9 +23,17 @@ if (!WEBHOOK_URL) {
     process.exit(1);
 }
 
+if (!DENYLIST) {
+    cli.logError("DENYLIST must be specified in .env");
+    process.exit(1);
+}
+
+
 const app = Express();
 
 app.use(Express.json());
+app.use(makeDenylistMiddleware(DENYLIST.split(",")));
+
 
 
 app.listen(PORT, (err) => {
