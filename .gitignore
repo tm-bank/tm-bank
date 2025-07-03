@@ -31,3 +31,6 @@ app/src-tauri/gen/schemas
 
 # Node
 app/node_modules
+
+# Env files
+/server/.env
