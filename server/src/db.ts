@@ -27,4 +27,8 @@ export namespace db {
             cli.logError(`Failed to write to JSON object: ${e}`, true);
         }
     }
+
+    export function fileExists(filePath: string) {
+        return fs.existsSync(filePath);
+    }
 }
