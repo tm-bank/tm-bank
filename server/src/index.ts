@@ -1,5 +1,7 @@
 import Express from "express";
 import { config } from "dotenv"
+import cookieParser from "cookie-parser";
+import cors from "cors";
 
 import { makeDenylistMiddleware } from "./denylist.js";
 import { emit } from "./emit.js";
@@ -81,6 +83,10 @@ const database = new db.Database();
 
 const app = Express();
 
+app.use(cookieParser());
+app.use(cors({
+    credentials: true
+}))
 app.use(Express.json());
 app.use(makeDenylistMiddleware(DENYLIST.length !== 0 ? DENYLIST.split(",") : []));
 

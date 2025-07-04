@@ -1,4 +1,5 @@
 use serde::Serialize;
+use std::sync::Mutex;
 use tm_bank_core::types::user::{AuthenticationStatus, UserData};
 
 #[derive(Serialize)]
@@ -18,5 +19,5 @@ impl Default for Authentication {
 
 #[derive(Default, Serialize)]
 pub struct AppState {
-    pub auth: Authentication,
+    pub auth: Mutex<Authentication>,
 }

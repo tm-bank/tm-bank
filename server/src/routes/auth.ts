@@ -55,6 +55,7 @@ export default function makeAuth(database: db.Database) {
                 display_name: user.global_name || user.username,
                 avatar_url: user.avatar ?? "none",
                 role: "Member",
+                maps: [],
                 items: [],
                 reports: [],
                 votes: [],
@@ -73,14 +74,51 @@ export default function makeAuth(database: db.Database) {
                 { expiresIn: "7d" }
             );
 
-            res.redirect(
+            res.set("Location",
                 `${process.env.LOCAL_URI!}auth/callback?token=${jwtToken}`
             );
+            res.status(302).send();
         } catch (err) {
             console.log(err);
             res.status(500).send("OAuth failed");
         }
     });
+
+
+    router.post("/set-cookie", (req, res) => {
+        const { token } = req.body;
+        if (!token) {
+            res.status(400).send("No token provided");
+            return;
+        }
+
+        try {
+            jwt.verify(token, process.env.SESSION_SECRET!);
+            res.cookie("user", token, {
+                httpOnly: true,
+                sameSite: "none",
+                secure: true,
+            });
+            res.status(200).json({ message: "Cookie set" });
+        } catch {
+            res.status(401).send("Invalid token");
+        }
+    });
+
+    router.get("/me", (req, res) => {
+        const token = req.cookies.user;
+        if (!token) {
+            res.status(401).json({ error: "Not authenticated" });
+            return;
+        }
+        try {
+            const user = jwt.verify(token, process.env.SESSION_SECRET!);
+            res.json(user);
+        } catch {
+            res.status(401).json({ error: "Invalid token" });
+        }
+    });
+
 
     return router;
 }

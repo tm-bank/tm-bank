@@ -1,6 +1,6 @@
 use serde::Serialize;
 
-use crate::types::{items::Item, moderation::Report, votes::Vote};
+use crate::types::{items::Item, maps::Map, moderation::Report, votes::Vote};
 
 #[derive(Serialize)]
 pub enum AuthenticationStatus {
@@ -22,6 +22,7 @@ pub struct UserData {
     pub display_name: String,
     pub avatar_url: String,
     pub items: Vec<Item>,
+    pub maps: Vec<Map>,
     pub role: UserRole,
     pub votes: Vec<Vote>,
     pub reports: Vec<Report>

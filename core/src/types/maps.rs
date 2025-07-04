@@ -1,6 +1,8 @@
 use crate::types::{items::Item, tags::Tags, user::UserId};
 
 pub type ManiaExchangeId = u64;
+
+#[derive(Clone, serde::Serialize)]
 pub struct Map {
     pub id: String,
     pub name: String,

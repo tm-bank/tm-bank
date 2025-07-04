@@ -1,14 +1,12 @@
-import { Sidebar, SidebarContent, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarRail, useSidebar } from "../ui/sidebar";
+import { Sidebar, SidebarContent, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarRail } from "../ui/sidebar";
 import { TMBank } from "../tm-bank";
 import { Compass, Home } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Separator } from "../ui/separator";
+import { AppSidebarFooter } from "./app-sidebar-footer";
 
 export function AppSidebar() {
     const location = useLocation();
-    const sidebar = useSidebar();
-
-
 
     return (
         <Sidebar collapsible="icon" className="border-r-0">
@@ -36,6 +34,7 @@ export function AppSidebar() {
                 </SidebarMenuButton>
             </SidebarContent>
             <SidebarRail />
+            <AppSidebarFooter />
         </Sidebar>
     )
 }
